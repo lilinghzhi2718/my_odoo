@@ -8,9 +8,7 @@
                 <tree>
                     <field name="sell_id"/>
                     <field name="product_name"/>
-                    <field name="sell_num"/>
-                    <field name="product_sell"/>
-                    <field name="sell_state"/>
+                    <field name="sell_money"/>
                 </tree>
         </field>
     </record>
@@ -20,14 +18,7 @@
         <field name="model">cxrs.sell</field>
         <field name="arch" type="xml">
                 <form>
-                    <header>
-                        <button string="草稿" name="button_one" type="object" class="oe_highlight"/>
-                        <button string="确认订单" name="button_two" type="object" class="oe_highlight"/>
-                        <button string="确认支付" name="button_three" type="object" class="oe_highlight"/>
-                            <field name="sell_state" widget="statusbar" statusbar_visible="one,two,three"/>
-                    </header>
                         <sheet>
-                            <group>
                                 <group>
                                      <field name="sell_id"/>
                                      <field name="product_name"/>
@@ -35,17 +26,6 @@
                                      <field name="supplier" widget="many2many_tags"/>
                                      <field name="sell_date"/>
                                  </group>
-                                <group>
-
-                                     <field name="product_sell"/>
-                                     <field name="sell_num"/>
-                                     <field name="sell_state"/>
-                                </group>
-                                <group>
-                                     <field name="sell_money"/>
-                                     <field name="sell_detail"/>
-                                </group>
-                            </group>
 
                         </sheet>
                 </form>
