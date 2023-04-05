@@ -1,0 +1,62 @@
+<?xml version="1.8" encoding="utf-8"?>
+<odoo>
+
+    <record id='cxrs_purchase_tree_view' model="ir.ui.view">
+        <field name="name">采购信息</field>
+        <field name="model">cxrs.purchase</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="purchase_id"/>
+                    <field name="product_name"/>
+                    <field name="purchase_num"/>
+                    <field name="purchase_cost"/>
+                    <field name="purchase_state"/>
+                </tree>
+        </field>
+    </record>
+
+<record id='cxrs_purchase_view_form' model="ir.ui.view">
+        <field name="name">采购订单</field>
+        <field name="model">cxrs.purchase</field>
+        <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="草稿" name="button_one" type="object" class="oe_highlight"/>
+                        <button string="验证" name="button_two" type="object" class="oe_highlight"/>
+                        <button string="确认订单" name="button_three" type="object" class="oe_highlight"/>
+                            <field name="purchase_state" widget="statusbar" statusbar_visible="one,two,three"/>
+                    </header>
+                        <sheet>
+                            <group>
+                                <group>
+                                     <field name="purchase_id"/>
+                                     <field name="product_name"/>
+                                     <field name="product_img" widget ='image' class ="oe_avatar oe_left"/>
+                                     <field name="supplier" widget="many2many_tags"/>
+                                     <field name="purchase_date"/>
+                                 </group>
+                                <group>
+
+                                     <field name="purchase_cost"/>
+                                     <field name="purchase_num"/>
+                                     <field name="purchase_state"/>
+                                </group>
+                                <group>
+                                     <field name="purchase_money"/>
+                                     <field name="purchase_detail"/>
+                                </group>
+                            </group>
+
+                        </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id='cxrs_purchase_action' model="ir.actions.act_window">
+        <field name="name">采购信息</field>
+        <field name="res_model">cxrs.purchase</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        <menuitem name="诚信二手" id="cxrs_menu_root" groups="base.group_user"/>
+        <menuitem name="采购信息" id="cxrs_purchase_menu" parent="cxrs_menu_root" action="cxrs_purchase_action" />
+</odoo>
