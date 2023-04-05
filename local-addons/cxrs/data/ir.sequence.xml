@@ -18,4 +18,13 @@
         </record>
     </data>
 
+            <data noupdate="1">
+        <record id="cxer_sell_id" model="ir.sequence">
+            <field name="name">销售订单编号</field>
+            <field name="code">cxrs.sell.id</field>
+            <field name="prefix">SE%(year)s%(month)s%(day)s</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+
 </odoo>

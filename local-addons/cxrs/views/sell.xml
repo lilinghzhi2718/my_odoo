@@ -1,0 +1,61 @@
+<?xml version="1.8" encoding="utf-8"?>
+<odoo>
+
+    <record id='cxrs_sell_tree_view' model="ir.ui.view">
+        <field name="name">销售信息</field>
+        <field name="model">cxrs.sell</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="sell_id"/>
+                    <field name="product_name"/>
+                    <field name="sell_num"/>
+                    <field name="product_sell"/>
+                    <field name="sell_state"/>
+                </tree>
+        </field>
+    </record>
+
+<record id='cxrs_sell_view_form' model="ir.ui.view">
+        <field name="name">采购订单</field>
+        <field name="model">cxrs.sell</field>
+        <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="草稿" name="button_one" type="object" class="oe_highlight"/>
+                        <button string="确认订单" name="button_two" type="object" class="oe_highlight"/>
+                        <button string="确认支付" name="button_three" type="object" class="oe_highlight"/>
+                            <field name="sell_state" widget="statusbar" statusbar_visible="one,two,three"/>
+                    </header>
+                        <sheet>
+                            <group>
+                                <group>
+                                     <field name="sell_id"/>
+                                     <field name="product_name"/>
+                                     <field name="product_img" widget ='image' class ="oe_avatar oe_left"/>
+                                     <field name="supplier" widget="many2many_tags"/>
+                                     <field name="sell_date"/>
+                                 </group>
+                                <group>
+
+                                     <field name="product_sell"/>
+                                     <field name="sell_num"/>
+                                     <field name="sell_state"/>
+                                </group>
+                                <group>
+                                     <field name="sell_money"/>
+                                     <field name="sell_detail"/>
+                                </group>
+                            </group>
+
+                        </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id='cxrs_sell_action' model="ir.actions.act_window">
+        <field name="name">销售信息</field>
+        <field name="res_model">cxrs.sell</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        <menuitem name="销售信息" id="cxrs_sell_menu" parent="cxrs_menu_root" action="cxrs_sell_action" />
+</odoo>

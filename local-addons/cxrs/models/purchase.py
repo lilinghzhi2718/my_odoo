@@ -18,7 +18,7 @@ class purchase(models.Model):
     purchase_cost = fields.Float(string='货品成本',required=True,digits=(8,1))
     purchase_date = fields.Date(string='采购时间')
     purchase_detail = fields.Text(string='采购详情')
-    purchase_state=fields.Selection([('one','草稿'),('two','已验证'),('three','入库')],string='货品状态'
+    purchase_state=fields.Selection([('one','草稿'),('two','已验证'),('three','转入库')],string='货品状态'
                                    ,readonly=True,default='one',copy=False,track_visiblity='onchange')
     def button_one(self):
         return self.write({"purchase_state":"one"})
