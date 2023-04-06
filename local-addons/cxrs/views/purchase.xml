@@ -104,7 +104,8 @@
                                 </sheet>
                                 <sheet>
                                 <group>
-                                     <field name="person_id"/>
+                                     <field name="pu_pr_id"/>
+                                     <field name="pu_pe_id"/>
                                      <field name="purchase_detail"/>
                                 </group>
                                 </sheet>

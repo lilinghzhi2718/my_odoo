@@ -6,7 +6,8 @@ class purchase(models.Model):
     _description='采购信息'
     _rec_name = 'purchase_ids'
 
-    person_id=fields.Many2one('cxrs.person',string='供应者')
+    pu_pr_id = fields.One2many('cxrs.product', 'pr_pu_id', string='收购物品')
+    pu_pe_id=fields.Many2one('cxrs.person',string='供应者')
     purchase_ids = fields.Char(string='采购订单编号', readonly=True)
     product_name = fields.Char(string='货品名称',required=True)
     product_img = fields.Binary(string='货品图片')
