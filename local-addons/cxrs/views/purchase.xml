@@ -8,8 +8,7 @@
                 <tree>
                     <field name="purchase_id"/>
                     <field name="product_name"/>
-                    <field name="purchase_num"/>
-                    <field name="purchase_cost"/>
+                    <field name="purchase_date"/>
                     <field name="purchase_state"/>
                 </tree>
         </field>
@@ -21,7 +20,7 @@
         <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button string="草稿" name="button_one" type="object" class="oe_highlight"/>
+                        <button string="取消" name="button_one" type="object" class="oe_highlight"/>
                         <button string="验证" name="button_two" type="object" class="oe_highlight"/>
                         <button string="确认订单" name="button_three" type="object" class="oe_highlight"/>
                             <field name="purchase_state" widget="statusbar" statusbar_visible="one,two,three"/>
@@ -32,17 +31,15 @@
                                      <field name="purchase_id"/>
                                      <field name="product_name"/>
                                      <field name="product_img" widget ='image' class ="oe_avatar oe_left"/>
-                                     <field name="supplier" widget="many2many_tags"/>
                                      <field name="purchase_date"/>
                                  </group>
                                 <group>
-
                                      <field name="purchase_cost"/>
                                      <field name="purchase_num"/>
-                                     <field name="purchase_state"/>
+                                    <field name="purchase_money"/>
                                 </group>
                                 <group>
-                                     <field name="purchase_money"/>
+                                     <field name="supplier"/>
                                      <field name="purchase_detail"/>
                                 </group>
                             </group>
