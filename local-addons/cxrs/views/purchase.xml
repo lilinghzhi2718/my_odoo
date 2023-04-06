@@ -6,7 +6,7 @@
         <field name="model">cxrs.purchase</field>
         <field name="arch" type="xml">
                 <tree>
-                    <field name="purchase_id"/>
+                    <field name="purchase_ids"/>
                     <field name="product_name"/>
                     <field name="purchase_date"/>
                     <field name="purchase_state"/>
@@ -28,7 +28,7 @@
                         <sheet>
                             <group>
                                 <group>
-                                     <field name="purchase_id"/>
+                                     <field name="purchase_ids"/>
                                      <field name="product_name"/>
                                      <field name="product_img" widget ='image' class ="oe_avatar oe_left"/>
                                      <field name="purchase_date"/>
