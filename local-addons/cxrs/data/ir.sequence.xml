@@ -11,11 +11,28 @@
 
             <data noupdate="1">
         <record id="cxer_person_id" model="ir.sequence">
-            <field name="name">采购订单编号</field>
+            <field name="name">人物编号</field>
             <field name="code">cxrs.person.id</field>
             <field name="prefix">PE%(year)s%(month)s%(day)s</field>
             <field name="padding">4</field>
         </record>
     </data>
 
+                <data noupdate="1">
+        <record id="cxer_product_id" model="ir.sequence">
+            <field name="name">物品编号</field>
+            <field name="code">cxrs.product.id</field>
+            <field name="prefix">PR%(year)s%(month)s%(day)s</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+
+                    <data noupdate="1">
+        <record id="cxer_stock_id" model="ir.sequence">
+            <field name="name">物品编号</field>
+            <field name="code">cxrs.stock.id</field>
+            <field name="prefix">ST</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
 </odoo>
