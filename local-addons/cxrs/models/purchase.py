@@ -17,11 +17,11 @@ class purchase(models.Model):
 
     supplier = fields.Many2many('res.partner',string='供应者')
 
-    purchase_date = fields.Datetime(string='采购时间',default=fields.Datetime.today())
+    purchase_date = fields.Date(string='采购时间',default=fields.Date.today())
     purchase_detail = fields.Text(string='采购详情')
 
 
-
+    color=fields.Integer()
     purchase_state = fields.Selection([('one','草稿'),('two','已验证'),('three','订单完成')],string='货品状态'
                                    ,readonly=True,default='one',copy=False,track_visiblity='onchange')
 
