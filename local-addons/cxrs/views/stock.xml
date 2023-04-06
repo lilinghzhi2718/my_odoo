@@ -1,0 +1,45 @@
+<?xml version="1.8" encoding="utf-8"?>
+<odoo>
+
+    <record id='cxrs_stock_tree_view' model="ir.ui.view">
+        <field name="name">仓库信息</field>
+        <field name="model">cxrs.stock</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="stock_ids"/>
+                    <field name="stock_name"/>
+                    <field name="stock_local"/>
+                </tree>
+        </field>
+    </record>
+
+<record id='cxrs_stock_form_view' model="ir.ui.view">
+        <field name="name">仓库信息</field>
+        <field name="model">cxrs.stock</field>
+        <field name="arch" type="xml">
+                <form>
+                        <sheet>
+                            <group>
+                                     <field name="stock_ids"/>
+                                     <field name="stock_name"/>
+                                     <field name="stock_local"/>
+                                 </group>
+
+                                <sheet>
+                                <group>
+                                     <field name="st_pr_id"/>
+                                </group>
+                                </sheet>
+                        </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id='cxrs_stock_action' model="ir.actions.act_window">
+        <field name="name">仓库信息</field>
+        <field name="res_model">cxrs.stock</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        <menuitem name="诚信二手" id="cxrs_menu_root" groups="base.group_user"/>
+        <menuitem name="仓库信息" id="cxrs_stock_menu" parent="cxrs_menu_root" action="cxrs_stock_action" />
+</odoo>
