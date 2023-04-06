@@ -52,9 +52,15 @@
                                 <li>
                                     <field name="person_ids"/>
                                 </li>
+                                <li>
+                                    <field name="person_tel"/>
+                                </li>
                             </ul>
                         </div>
                         <div class="o_kanban_record_bottom">
+                            <div class="oe_kanban_bottom_left">
+
+                            </div>
                             <div class="oe_kanban_bottom_right">
                                 <field name="person_img" widget="image" options="{'size':[80,80]}"/>
                             </div>
@@ -78,6 +84,8 @@
                                 <group>
                                      <field name="person_ids"/>
                                      <field name="person_name"/>
+                                     <field name="person_wx"/>
+                                     <field name="person_tel"/>
                                      <field name="person_img" widget ='image' class ="oe_avatar oe_left"/>
                                  </group>
                                 <sheet>
