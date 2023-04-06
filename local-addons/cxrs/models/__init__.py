@@ -2,3 +2,5 @@
 
 from . import purchase
 from . import person
+from . import stock
+from . import product

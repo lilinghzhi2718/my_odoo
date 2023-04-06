@@ -28,6 +28,8 @@
         'data/ir.sequence.xml',
         'views/purchase.xml',
         'views/person.xml',
+        'views/stock.xml',
+        'views/product.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
