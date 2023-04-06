@@ -1,24 +1,22 @@
 <?xml version="1.8" encoding="utf-8"?>
 <odoo>
 
-    <record id='cxrs_purchase_tree_view' model="ir.ui.view">
-        <field name="name">采购信息</field>
-        <field name="model">cxrs.purchase</field>
+    <record id='cxrs_person_tree_view' model="ir.ui.view">
+        <field name="name">人物信息</field>
+        <field name="model">cxrs.person</field>
         <field name="arch" type="xml">
                 <tree>
-                    <field name="purchase_ids"/>
-                    <field name="product_name"/>
-                    <field name="purchase_date"/>
-                    <field name="purchase_state"/>
+                    <field name="person_ids"/>
+                    <field name="person_name"/>
+                    <field name="person_img"/>
                 </tree>
         </field>
     </record>
 
-<record id="cxrs_purchase_kanban_view" model="ir.ui.view">
-    <field name="model">cxrs.purchase</field>
+<record id="cxrs_person_kanban_view" model="ir.ui.view">
+    <field name="model">cxrs.person</field>
     <field name="arch" type="xml">
-        <kanban class="o_modules_kanban" default_group_by="purchase_state" default_order="purchase_state">
-            <field name="purchase_state"/>
+        <kanban class="o_modules_kanban">
             <field name="color"/>
             <templates>
                 <t t-name="kanban-box">
@@ -46,25 +44,19 @@
                             <div style="font-size:20px;">
                                 <strong>
                                     <a type="open">
-                                        <field name="product_name"/>
+                                        <field name="person_name"/>
                                     </a>
                                 </strong>
                             </div>
                             <ul>
                                 <li>
-                                    <field name="purchase_ids"/>
-                                </li>
-                                <li>
-                                    <field name="purchase_date"/>
+                                    <field name="person_ids"/>
                                 </li>
                             </ul>
                         </div>
                         <div class="o_kanban_record_bottom">
-                            <div class="oe_kanban_bottom_left">
-                              <field name="purchase_state" widget="priority"/>
-                            </div>
                             <div class="oe_kanban_bottom_right">
-                                <field name="product_img" widget="image" options="{'size':[80,80]}"/>
+                                <field name="person_img" widget="image" options="{'size':[80,80]}"/>
                             </div>
                         </div>
                         <div class="oe_clear"/>
@@ -76,36 +68,21 @@
     </field>
 
 </record>
-<record id='cxrs_purchase_form_view' model="ir.ui.view">
+<record id='cxrs_person_form_view' model="ir.ui.view">
         <field name="name">采购订单</field>
-        <field name="model">cxrs.purchase</field>
+        <field name="model">cxrs.person</field>
         <field name="arch" type="xml">
                 <form>
-                    <header>
-                        <button string="取消" name="button_one" type="object" class="oe_highlight"/>
-                        <button string="验证" name="button_two" type="object" class="oe_highlight"/>
-                        <button string="确认订单" name="button_three" type="object" class="oe_highlight"/>
-                            <field name="purchase_state" widget="statusbar" statusbar_visible="one,two,three"/>
-                    </header>
                         <sheet>
                             <group>
                                 <group>
-                                     <field name="purchase_ids"/>
-                                     <field name="product_name"/>
-                                     <field name="product_img" widget ='image' class ="oe_avatar oe_left"/>
-                                     <field name="purchase_date"/>
+                                     <field name="person_ids"/>
+                                     <field name="person_name"/>
+                                     <field name="person_img" widget ='image' class ="oe_avatar oe_left"/>
                                  </group>
                                 <sheet>
                                 <group>
-                                     <field name="purchase_cost"/>
-                                     <field name="purchase_num"/>
-                                    <field name="purchase_money"/>
-                                </group>
-                                </sheet>
-                                <sheet>
-                                <group>
-                                     <field name="person_id"/>
-                                     <field name="purchase_detail"/>
+                                     <field name="purchase_id"/>
                                 </group>
                                 </sheet>
                             </group>
@@ -115,11 +92,11 @@
         </field>
     </record>
 
-    <record id='cxrs_purchase_action' model="ir.actions.act_window">
+    <record id='cxrs_person_action' model="ir.actions.act_window">
         <field name="name">采购信息</field>
-        <field name="res_model">cxrs.purchase</field>
+        <field name="res_model">cxrs.person</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
         <menuitem name="诚信二手" id="cxrs_menu_root" groups="base.group_user"/>
-        <menuitem name="采购信息" id="cxrs_purchase_menu" parent="cxrs_menu_root" action="cxrs_purchase_action" />
+        <menuitem name="人物信息" id="cxrs_person_menu" parent="cxrs_menu_root" action="cxrs_person_action" />
 </odoo>

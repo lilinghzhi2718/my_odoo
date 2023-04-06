@@ -27,7 +27,7 @@
         # 'security/ir.model.access.csv',
         'data/ir.sequence.xml',
         'views/purchase.xml',
-
+        'views/person.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
