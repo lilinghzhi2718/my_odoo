@@ -6,8 +6,8 @@
         <field name="model">cxrs.purchase</field>
         <field name="arch" type="xml">
                 <tree>
-                    <field name="purchase_ids"/>
                     <field name="product_name"/>
+                    <field name="purchase_ids"/>
                     <field name="purchase_date"/>
                     <field name="purchase_state"/>
                 </tree>
@@ -93,20 +93,20 @@
                                      <field name="purchase_ids"/>
                                      <field name="product_name"/>
                                      <field name="product_img" widget ='image' class ="oe_avatar oe_left"/>
-                                     <field name="purchase_date"/>
                                  </group>
                                 <sheet>
                                 <group>
+                                    <field name="purchase_date"/>
                                      <field name="purchase_cost"/>
                                      <field name="purchase_num"/>
                                     <field name="purchase_money"/>
+                                    <field name="purchase_detail"/>
                                 </group>
                                 </sheet>
                                 <sheet>
                                 <group>
                                      <field name="pu_pr_id"/>
                                      <field name="pu_pe_id"/>
-                                     <field name="purchase_detail"/>
                                 </group>
                                 </sheet>
                             </group>

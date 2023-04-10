@@ -8,14 +8,13 @@ class purchase(models.Model):
 
     pu_pr_id = fields.One2many('cxrs.product', 'pr_pu_id', string='收购物品')
     pu_pe_id=fields.Many2one('cxrs.person',string='供应者')
+
     purchase_ids = fields.Char(string='采购订单编号', readonly=True)
     product_name = fields.Char(string='货品名称',required=True)
     product_img = fields.Binary(string='货品图片')
-
     purchase_num = fields.Float(string='采购数量',default=1)
     purchase_cost = fields.Float(string='采购单价', required=True, digits=(8, 1))
     purchase_money = fields.Float(string='采购总价',compute='count_total',store=True,readonly=True,digits=(8,1))
-
 
     purchase_date = fields.Date(string='采购时间',default=fields.Date.today())
     purchase_detail = fields.Text(string='采购详情')
@@ -31,7 +30,25 @@ class purchase(models.Model):
     def button_two(self):
         return self.write({"purchase_state":"two"})
     def button_three(self):
-        return self.write({"purchase_state":"three"})
+        self.write({"purchase_state":"three"})
+        product_form_id = self.env.ref('cxrs.cxrs_product_form_view').id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '入库单',
+            'res_model': 'cxrs.product',
+            'view_mode': 'form',
+            'target': 'current',
+            'context': {
+                'default_purchase_ids': self.purchase_ids,
+                'default_product_name': self.product_name,
+                'default_product_img': self.product_img,
+                'default_purchase_num': self.purchase_num,
+                'default_purchase_cost': self.purchase_cost,
+                'default_purchase_money': self.purchase_money,
+                'default_purchase_date': self.purchase_date,
+            },
+            'views': [(product_form_id, 'form')],
+        }
 
 
 

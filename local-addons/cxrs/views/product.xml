@@ -84,8 +84,9 @@
                     <header>
                         <button string="取消" name="button_one" type="object" class="oe_highlight"/>
                         <button string="验证" name="button_two" type="object" class="oe_highlight"/>
-                        <button string="确认订单" name="button_three" type="object" class="oe_highlight"/>
-                            <field name="product_state" widget="statusbar" statusbar_visible="one,two,three"/>
+                        <button string="确认入库" name="button_three" type="object" class="oe_highlight"/>
+                        <button string="确认出库" name="button_four" type="object" class="oe_highlight"/>
+                            <field name="product_state" widget="statusbar" statusbar_visible="one,two,three,four"/>
                     </header>
                         <sheet>
                             <group>
@@ -99,9 +100,9 @@
                                  </group>
                                 <sheet>
                                 <group>
-                                     <field name="purchase_cost"/>
-                                     <field name="purchase_num"/>
-                                    <field name="purchase_money"/>
+                                     <field name="sale_num"/>
+                                     <field name="sale_cost"/>
+                                    <field name="sale_money"/>
                                 </group>
                                 </sheet>
                                 <sheet>
