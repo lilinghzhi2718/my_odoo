@@ -6,8 +6,8 @@
         <field name="model">cxrs.person</field>
         <field name="arch" type="xml">
                 <tree>
-                    <field name="person_ids"/>
                     <field name="person_name"/>
+                    <field name="person_ids"/>
                     <field name="person_img"/>
                 </tree>
         </field>
@@ -89,11 +89,13 @@
                                  </group>
                                 <sheet>
                                 <group>
-                                     <field name="pe_pr_id"/>
+                                     <field name="pe_pu_id"/>
                                 </group>
                                 </sheet>
                             </group>
-
+                                <sheet>
+                                     <field name="pe_pr_id"/>
+                                </sheet>
                         </sheet>
                 </form>
         </field>

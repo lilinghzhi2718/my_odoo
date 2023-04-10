@@ -6,8 +6,8 @@
         <field name="model">cxrs.stock</field>
         <field name="arch" type="xml">
                 <tree>
-                    <field name="stock_ids"/>
                     <field name="stock_name"/>
+                    <field name="stock_ids"/>
                     <field name="stock_local"/>
                 </tree>
         </field>

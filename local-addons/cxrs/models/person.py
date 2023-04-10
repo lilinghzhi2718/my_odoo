@@ -5,8 +5,8 @@ class person(models.Model):
     _description='人物信息'
     _rec_name = 'person_ids'
 
-    pe_pr_id = fields.One2many('cxrs.product', 'pr_pe_id', string='物品信息')
-    pe_pu_id=fields.One2many('cxrs.purchase','pu_pe_id',string='收购物品')
+    pe_pr_id = fields.One2many('cxrs.product', 'pr_pe_id', string='收购物品')
+    pe_pu_id=fields.One2many('cxrs.purchase','pu_pe_id',string='收购订单')
     person_name = fields.Char(string='人物名称', required=True)
     person_ids = fields.Char(string='人物编号', readonly=True)
     person_wx = fields.Char(string='人物微信', required=True)
