@@ -1,0 +1,132 @@
+<?xml version="1.8" encoding="utf-8"?>
+<odoo>
+
+    <record id='cxrs_sale_tree_view' model="ir.ui.view">
+        <field name="name">销售信息</field>
+        <field name="model">cxrs.sale</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="product_name"/>
+                    <field name="sale_num"/>
+                    <field name="sale_cost"/>
+                    <field name="sale_state"/>
+                </tree>
+        </field>
+    </record>
+
+<record id="cxrs_sale_kanban_view" model="ir.ui.view">
+    <field name="model">cxrs.sale</field>
+    <field name="arch" type="xml">
+        <kanban class="o_modules_kanban" default_group_by="sale_state" default_order="sale_state">
+            <field name="sale_state"/>
+            <field name="color"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)}">
+                    <div class="o_dropdown_kanban dropdown">
+                        <a class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-label="Dropdown menu"
+                            title="Dropdown menu" href="#">
+                            <span class="fa fa-ellipsis-v"/>
+                        </a>
+                        <div class="dropdown-menu" role="menu">
+                            <t t-if="widget.editable">
+                                <a role="menuitem" type="edit" class="dropdown-item">编辑</a>
+                            </t>
+                            <t t-if="widget.deletable">
+                                <a role="menuitem" type="delete" class="dropdown-item">删除</a>
+                            </t>
+                            <ul class="oe_kanban_colorpicker" data-field="color"/>
+                        </div>
+
+                    </div>
+
+
+                    <div>
+                        <div class="oe_kanban_body">
+                            <div style="font-size:20px;">
+                                <strong>
+                                    <a type="open">
+                                        <field name="product_name"/>
+                                    </a>
+                                </strong>
+                            </div>
+                            <ul>
+                                <li>
+                                   <field name="sale_num"/>
+                                </li>
+                                <li>
+                                    <field name="sale_date"/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="o_kanban_record_bottom">
+                            <div class="oe_kanban_bottom_left">
+                              <field name="sale_state" widget="priority"/>
+                            </div>
+                            <div class="oe_kanban_bottom_right">
+                                <field name="product_img" widget="image" options="{'size':[80,80]}"/>
+                            </div>
+                        </div>
+                        <div class="oe_clear"/>
+                    </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+
+</record>
+<record id='cxrs_sale_form_view' model="ir.ui.view">
+        <field name="name">销售订单</field>
+        <field name="model">cxrs.sale</field>
+        <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="取消" name="button_one" type="object" class="oe_highlight"/>
+                        <button string="验证" name="button_two" type="object" class="oe_highlight" attrs="{'invisible': [('sale_state', '=', 'two')]}"/>
+                        <button string="确认订单" name="button_three" type="object" class="oe_highlight" attrs="{'invisible': [('sale_state', '=', 'three')]}"/>
+                            <field name="sale_state" widget="statusbar" statusbar_visible="one,two,three"/>
+                    </header>
+                        <sheet>
+                            <group>
+                                <group>
+                                     <field name="product_name"/>
+                                     <field name="product_img" widget ='image' class ="oe_avatar oe_left"/>
+                                 </group>
+                                <sheet>
+                                <group>
+                                    <field name="sale_date"/>
+                                     <field name="sale_cost"/>
+                                    <field name="product_num"/>
+                                     <field name="sale_num"/>
+                                    <field name="sale_money"/>
+                                    <field name="sale_detail"/>
+                                </group>
+                                </sheet>
+                                <sheet>
+                                <group>
+                                        <group>
+                                     <field name="sa_pe_id" options="{'create': true}"/>
+                                        </group>
+                                        <group>
+                                        <button string="creat" name="button_four" type="object" style="writing-mode: horizontal-tb;"/>
+                                        </group>
+                                        <group>
+                                        </group>
+                                </group>
+                                </sheet>
+                            </group>
+
+                        </sheet>
+                </form>
+        </field>
+    </record>
+
+<record id='cxrs_sale_action' model="ir.actions.act_window">
+    <field name="name">销售信息</field>
+    <field name="res_model">cxrs.sale</field>
+    <field name="view_mode">kanban,tree,form</field>
+</record>
+        <menuitem name="诚信二手" id="cxrs_menu_root" groups="base.group_user"/>
+        <menuitem name="销售信息" id="cxrs_sale_menu" parent="cxrs_menu_root" action="cxrs_sale_action" />
+</odoo>
