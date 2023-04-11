@@ -10,7 +10,7 @@ class purchase(models.Model):
 
 
     pu_pr_id = fields.One2many('cxrs.product', 'pr_pu_id', string='收购物品')
-    pu_pe_id=fields.Many2one('cxrs.person',string='人物名称',create=True)
+    pu_pe_id = fields.Many2one('cxrs.person',string='人物名称',create=True)
 
     purchase_ids = fields.Char(string='采购订单编号', readonly=True)
     product_name = fields.Char(string='货品名称',required=True)
@@ -24,7 +24,7 @@ class purchase(models.Model):
 
 
     color=fields.Integer()
-    purchase_state = fields.Selection([('one','草稿'),('two','已验证'),('three','订单完成')],string='货品状态'
+    purchase_state = fields.Selection([('one','草稿'),('two','已验证'),('three','订单完成')],string='采购状态'
                                    ,readonly=True,default='one',copy=False,track_visiblity='onchange')
 
 

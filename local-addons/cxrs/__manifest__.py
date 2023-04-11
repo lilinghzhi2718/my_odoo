@@ -30,6 +30,7 @@
         'views/person.xml',
         'views/stock.xml',
         'views/product.xml',
+        'views/sale.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

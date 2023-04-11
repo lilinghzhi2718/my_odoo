@@ -94,9 +94,6 @@
                                 </group>
                                 </sheet>
                             </group>
-                                <sheet>
-                                     <field name="pe_pr_id"/>
-                                </sheet>
                         </sheet>
                 </form>
         </field>
