@@ -16,7 +16,7 @@ class purchase(models.Model):
     purchase_cost = fields.Float(string='采购单价', required=True, digits=(8, 1))
     purchase_money = fields.Float(string='采购总价',compute='count_total',store=True,readonly=True,digits=(8,1))
 
-    purchase_date = fields.Date(string='采购时间',default=fields.Date.today())
+    purchase_date = fields.Datetime(string='采购时间',default=fields.Datetime.now())
     purchase_detail = fields.Text(string='采购详情')
 
 
