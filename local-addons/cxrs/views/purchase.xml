@@ -106,7 +106,12 @@
                                 <sheet>
                                 <group>
                                      <field name="pu_pr_id"/>
-                                     <field name="pu_pe_id" widget="many2one" options="{'create': true}"/>
+                                        <group>
+                                     <field name="pu_pe_id" options="{'create': true}"/>
+                                        </group>
+                                        <group>
+                                        <button string="creat" name="button_four" type="object" style="writing-mode: horizontal-tb;"/>
+                                        </group>
                                 </group>
                                 </sheet>
                             </group>

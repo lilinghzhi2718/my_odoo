@@ -75,7 +75,7 @@
 
 </record>
 <record id='cxrs_person_form_view' model="ir.ui.view">
-        <field name="name">采购订单</field>
+        <field name="name">人物信息</field>
         <field name="model">cxrs.person</field>
         <field name="arch" type="xml">
                 <form>

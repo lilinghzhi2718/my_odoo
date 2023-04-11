@@ -10,7 +10,7 @@ class purchase(models.Model):
 
 
     pu_pr_id = fields.One2many('cxrs.product', 'pr_pu_id', string='收购物品')
-    pu_pe_id=fields.Many2one('cxrs.person',string='人物名称',index=True,display_name='pu_pe_id.person_name')
+    pu_pe_id=fields.Many2one('cxrs.person',string='人物名称',create=True)
 
     purchase_ids = fields.Char(string='采购订单编号', readonly=True)
     product_name = fields.Char(string='货品名称',required=True)
@@ -50,6 +50,17 @@ class purchase(models.Model):
                 'default_purchase_money': self.purchase_money,
                 'default_purchase_date': self.purchase_date,
             },
+            'views': [(product_form_id, 'form')],
+        }
+
+    def button_four(self):
+        product_form_id = self.env.ref('cxrs.cxrs_person_form_view').id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '人物信息',
+            'res_model': 'cxrs.person',
+            'view_mode': 'form',
+            'target': 'inline',
             'views': [(product_form_id, 'form')],
         }
 
