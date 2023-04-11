@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class person(models.Model):
     _name = 'cxrs.person'
     _description='人物信息'
-    _rec_name = 'person_ids'
+    _rec_name = 'person_name'
 
     pe_pr_id = fields.One2many('cxrs.product', 'pr_pe_id', string='收购物品')
     pe_pu_id=fields.One2many('cxrs.purchase','pu_pe_id',string='收购订单')

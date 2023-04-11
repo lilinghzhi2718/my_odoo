@@ -99,11 +99,19 @@
                                      <field name="purchase_date"/>
                                  </group>
                                 <sheet>
+                                                                    <group>
+                                    <field name="purchase_date"/>
+                                     <field name="purchase_cost"/>
+                                     <field name="purchase_num"/>
+                                    <field name="purchase_money"/>
+                                    <field name="purchase_detail"/>
+                                </group>
                                 <group>
                                      <field name="sale_num"/>
                                      <field name="sale_cost"/>
                                     <field name="sale_money"/>
                                 </group>
+
                                 </sheet>
                                 <sheet>
                                 <group>
