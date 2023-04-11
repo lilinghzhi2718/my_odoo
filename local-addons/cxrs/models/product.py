@@ -5,6 +5,7 @@ class product(models.Model):
     _name = 'cxrs.product'
     _description='物品信息'
 
+    pr_ou_id = fields.Many2one('cxrs.outstock', string='出库信息')
     pr_sa_id = fields.Many2one('cxrs.sale', string='销售信息')
     pr_pe_id = fields.Many2one('cxrs.person', string='供应商信息')
     pr_pu_id=fields.Many2one('cxrs.purchase',string='采购信息')

@@ -31,6 +31,7 @@
         'views/stock.xml',
         'views/product.xml',
         'views/sale.xml',
+        'views/outstock.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

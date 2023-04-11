@@ -36,16 +36,30 @@ class sale(models.Model):
     def button_three(self):
         self.sale_date=fields.Datetime.now()
         self.write({"sale_state": "three"})
+        outstock_form_id = self.env.ref('cxrs.cxrs_outstock_form_view').id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '销售订单',
+            'res_model': 'cxrs.outstock',
+            'view_mode': 'form',
+            'target': 'inline',
+            'context': {
+                'default_product_name': self.product_name,
+                'default_product_img': self.product_img,
+                'default_sale_num': self.sale_num,
+            },
+            'views': [(outstock_form_id, 'form')],
+        }
 
     def button_four(self):
-        product_form_id = self.env.ref('cxrs.cxrs_person_form_view').id
+        person_form_id = self.env.ref('cxrs.cxrs_person_form_view').id
         return {
             'type': 'ir.actions.act_window',
             'name': '人物信息',
             'res_model': 'cxrs.person',
             'view_mode': 'form',
             'target': 'inline',
-            'views': [(product_form_id, 'form')],
+            'views': [(person_form_id, 'form')],
         }
 
     @api.model
