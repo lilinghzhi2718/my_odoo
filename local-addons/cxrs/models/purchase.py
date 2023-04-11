@@ -40,7 +40,7 @@ class purchase(models.Model):
             'name': '入库单',
             'res_model': 'cxrs.product',
             'view_mode': 'form',
-            'target': 'current',
+            'target': 'inline',
             'context': {
                 'default_purchase_ids': self.purchase_ids,
                 'default_product_name': self.product_name,

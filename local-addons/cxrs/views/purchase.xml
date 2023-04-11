@@ -83,8 +83,8 @@
                 <form>
                     <header>
                         <button string="取消" name="button_one" type="object" class="oe_highlight"/>
-                        <button string="验证" name="button_two" type="object" class="oe_highlight"/>
-                        <button string="确认订单" name="button_three" type="object" class="oe_highlight"/>
+                        <button string="验证" name="button_two" type="object" class="oe_highlight" attrs="{'invisible': [('purchase_state', '=', 'two')]}"/>
+                        <button string="确认订单" name="button_three" type="object" class="oe_highlight" attrs="{'invisible': [('purchase_state', '=', 'three')]}"/>
                             <field name="purchase_state" widget="statusbar" statusbar_visible="one,two,three"/>
                     </header>
                         <sheet>
@@ -106,7 +106,7 @@
                                 <sheet>
                                 <group>
                                      <field name="pu_pr_id"/>
-                                     <field name="pu_pe_id" />
+                                     <field name="pu_pe_id" widget="many2one" options="{'create': true}"/>
                                 </group>
                                 </sheet>
                             </group>
