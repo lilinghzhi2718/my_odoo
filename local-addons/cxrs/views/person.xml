@@ -82,6 +82,7 @@
                         <sheet>
                             <group>
                                 <group>
+                                     <field name="person_ids"/>
                                      <field name="person_name"/>
                                      <field name="person_wx"/>
                                      <field name="person_tel"/>
