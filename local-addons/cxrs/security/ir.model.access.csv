@@ -1,2 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_cxrs_cxrs,cxrs.cxrs,model_cxrs_cxrs,base.group_user,1,1,1,1
+cxrs_outstock,cxrs.outstock_admin,model_cxrs_outstock,group_cxrs,1,1,1,1
+cxrs_person,cxrs.person_admin,model_cxrs_person,group_cxrs,1,1,1,1
+cxrs_product,cxrs.product_admin,model_cxrs_product,group_cxrs,1,1,1,1
+cxrs_purchase,cxrs.purchase_admin,model_cxrs_purchase,group_cxrs,1,1,1,1
+cxrs_sale,cxrs.sale_admin,model_cxrs_sale,group_cxrs,1,1,1,1
+cxrs_stock,cxrs.stock_admin,model_cxrs_stock,group_cxrs,1,1,1,1

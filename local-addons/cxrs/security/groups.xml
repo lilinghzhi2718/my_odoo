@@ -1,0 +1,6 @@
+<?xml version="1.8" encoding="utf-8"?>
+<odoo>
+    <record id="group_cxrs" model="res.groups">
+        <field name="name">店长</field>
+    </record>
+</odoo>
