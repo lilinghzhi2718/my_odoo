@@ -108,7 +108,7 @@
     </record>
 
     <record id='cxrs_person_action' model="ir.actions.act_window">
-        <field name="name">采购信息</field>
+        <field name="name">人物信息</field>
         <field name="res_model">cxrs.person</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
