@@ -4,6 +4,7 @@ class product(models.Model):
 
     _name = 'cxrs.product'
     _description='物品信息'
+    _rec_name = 'product_name'
 
     pr_ou_id = fields.Many2one('cxrs.outstock', string='出库信息')
     pr_sa_id = fields.Many2one('cxrs.sale', string='销售信息')
@@ -40,13 +41,14 @@ class product(models.Model):
 
     color=fields.Integer()
 
-    product_state = fields.Selection([('one','草稿'),('two','运输中'),('three','已入库'),('four','已出库')],string='货品状态'
+    product_state = fields.Selection([('one','草稿'),('two','运输中'),('three','已入库')],string='货品状态'
                                    ,readonly=True,default='one',copy=False,track_visiblity='onchange')
 
 
 
     def button_one(self):
         return self.write({"product_state":"one"})
+
     def button_two(self):
         return self.write({"product_state":"two"})
     def button_three(self):
@@ -105,4 +107,5 @@ class product(models.Model):
     @api.depends('sale_num', 'purchase_num')
     def count_product_num(self):
         self.product_num = self.purchase_num - self.sale_num
+
 

@@ -4,6 +4,7 @@ from odoo.exceptions import ValidationError
 class sale(models.Model):
     _name = 'cxrs.sale'
     _description = '销售订单'
+    _rec_name = 'product_name'
 
     sa_pe_id = fields.Many2one('cxrs.person',string='顾客信息')
     sa_pr_id = fields.Many2one('cxrs.product', string='产品信息')

@@ -1,8 +1,10 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+
 class outstock(models.Model):
     _name = 'cxrs.outstock'
     _description = '出库订单'
+    _rec_name = 'product_name'
 
     ou_pe_id = fields.Many2one('cxrs.person',string='顾客信息')
     ou_pr_id = fields.Many2one('cxrs.product', string='产品信息')
@@ -24,19 +26,18 @@ class outstock(models.Model):
     def button_two(self):
         return self.write({"outstock_state":"two"})
     def button_three(self):
+
         self.outstock_date=fields.Datetime.now()
         self.write({"outstock_state": "three"})
-        self.ensure_one()
-        if self.outstock_num > self.ou_pr_id.product_num:
+        product_record = self.env['cxrs.product'].browse(self.ou_pr_id.id)
+        if self.outstock_num > product_record.product_num:
             raise ValidationError('出库数量不能大于库存数量！')
-        # 更新货品数量和状态
-        self.ou_pr_id.write({
-            'product_num': self.ou_pr_id.product_num - self.outstock_num,
-            'product_state': 'four',  # 已出库状态
-            'outhand_date': fields.Datetime.now(),  # 更新出库时间
-            'pr_ou_id': self.id,  # 关联出库单
+        product_record.write({
+            'product_num': product_record.product_num - self.outstock_num,
+            'outhand_date': fields.Datetime.now(),
+            'pr_ou_id': self.id,
         })
-
+        print(product_record.product_num)
     @api.model
     def create(self, vals):
         record = super(outstock, self).create(vals)
