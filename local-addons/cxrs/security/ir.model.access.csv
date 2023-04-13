@@ -5,3 +5,4 @@ cxrs_product,cxrs.product_admin,model_cxrs_product,group_cxrs,1,1,1,1
 cxrs_purchase,cxrs.purchase_admin,model_cxrs_purchase,group_cxrs,1,1,1,1
 cxrs_sale,cxrs.sale_admin,model_cxrs_sale,group_cxrs,1,1,1,1
 cxrs_stock,cxrs.stock_admin,model_cxrs_stock,group_cxrs,1,1,1,1
+
