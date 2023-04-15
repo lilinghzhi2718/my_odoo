@@ -8,6 +8,7 @@ class sale(models.Model):
 
     sa_pe_id = fields.Many2one('cxrs.person',string='顾客信息')
     sa_pr_id = fields.Many2one('cxrs.product', string='产品信息')
+    sa_ou_id = fields.Many2one('cxrs.outstock', string='出库信息')
 
     product_name = fields.Char(string='货品名称',required=True)
     product_img = fields.Binary(string='货品图片')

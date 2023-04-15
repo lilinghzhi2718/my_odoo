@@ -122,10 +122,19 @@
     </record>
 
     <record id='cxrs_purchase_action' model="ir.actions.act_window">
-        <field name="name">采购信息</field>
+        <field name="name">采购总览</field>
         <field name="res_model">cxrs.purchase</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,form</field>
     </record>
+
+        <record id='cxrs_order_purchase_action' model="ir.actions.act_window">
+        <field name="name">采购订单</field>
+        <field name="res_model">cxrs.purchase</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
         <menuitem name="诚信二手" id="cxrs_menu_root" groups="base.group_user"/>
-        <menuitem name="采购信息" id="cxrs_purchase_menu" parent="cxrs_menu_root" action="cxrs_purchase_action" />
+        <menuitem name="采购信息" id="cxrs_purchase_menu" parent="cxrs_menu_root"/>
+        <menuitem name="采购总览" id="cxrs_all_purchase_menu" parent="cxrs_purchase_menu" action="cxrs_purchase_action" />
+        <menuitem name="采购订单" id="cxrs_order_purchase_menu" parent="cxrs_purchase_menu" action="cxrs_order_purchase_action" />
 </odoo>

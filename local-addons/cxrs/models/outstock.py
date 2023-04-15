@@ -37,7 +37,7 @@ class outstock(models.Model):
             'outhand_date': fields.Datetime.now(),
             'pr_ou_id': self.id,
         })
-        print(product_record.product_num)
+
     @api.model
     def create(self, vals):
         record = super(outstock, self).create(vals)

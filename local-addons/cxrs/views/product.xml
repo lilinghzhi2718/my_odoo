@@ -128,11 +128,17 @@
         </field>
     </record>
 
-    <record id='cxrs_product_action' model="ir.actions.act_window">
-        <field name="name">采购信息</field>
+    <record id='cxrs_allproduct_action' model="ir.actions.act_window">
+        <field name="name">物品总览</field>
         <field name="res_model">cxrs.product</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,form</field>
     </record>
-        <menuitem name="诚信二手" id="cxrs_menu_root" groups="base.group_user"/>
-        <menuitem name="物品信息" id="cxrs_product_menu" parent="cxrs_menu_root" action="cxrs_product_action" />
+        <record id='cxrs_product_action' model="ir.actions.act_window">
+        <field name="name">入库单</field>
+        <field name="res_model">cxrs.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        <menuitem name="物品总览" id="cxrs_allproduct_menu" parent="cxrs_stock_menu" action="cxrs_allproduct_action" />
+        <menuitem name="入库信息" id="cxrs_product_menu" parent="cxrs_stock_menu" action="cxrs_product_action" />
+
 </odoo>

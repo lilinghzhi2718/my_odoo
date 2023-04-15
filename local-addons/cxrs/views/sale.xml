@@ -123,10 +123,17 @@
     </record>
 
 <record id='cxrs_sale_action' model="ir.actions.act_window">
-    <field name="name">销售信息</field>
+    <field name="name">销售总览</field>
     <field name="res_model">cxrs.sale</field>
-    <field name="view_mode">kanban,tree,form</field>
+    <field name="view_mode">kanban,form</field>
+</record>
+    <record id='cxrs_order_sale_action' model="ir.actions.act_window">
+    <field name="name">销售订单</field>
+    <field name="res_model">cxrs.sale</field>
+    <field name="view_mode">tree,form</field>
 </record>
         <menuitem name="诚信二手" id="cxrs_menu_root" groups="base.group_user"/>
-        <menuitem name="销售信息" id="cxrs_sale_menu" parent="cxrs_menu_root" action="cxrs_sale_action" />
+        <menuitem name="销售信息" id="cxrs_sale_menu" parent="cxrs_menu_root"/>
+        <menuitem name="销售总览" id="cxrs_allsale_menu" parent="cxrs_sale_menu" action="cxrs_sale_action" />
+        <menuitem name="销售订单" id="cxrs_order_sale_menu" parent="cxrs_sale_menu" action="cxrs_order_sale_action" />
 </odoo>

@@ -40,6 +40,9 @@
         <field name="res_model">cxrs.stock</field>
         <field name="view_mode">tree,form</field>
     </record>
+
         <menuitem name="诚信二手" id="cxrs_menu_root" groups="base.group_user"/>
-        <menuitem name="仓库信息" id="cxrs_stock_menu" parent="cxrs_menu_root" action="cxrs_stock_action" />
+        <menuitem name="仓库信息" id="cxrs_stock_menu" parent="cxrs_menu_root"/>
+        <menuitem name="仓库总览" id="cxrs_allstock_menu" parent="cxrs_stock_menu" action="cxrs_stock_action" />
+
 </odoo>

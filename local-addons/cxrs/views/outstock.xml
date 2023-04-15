@@ -48,6 +48,6 @@
         <field name="res_model">cxrs.outstock</field>
         <field name="view_mode">tree,form</field>
     </record>
-        <menuitem name="诚信二手" id="cxrs_menu_root" groups="base.group_user"/>
-        <menuitem name="出库信息" id="cxrs_outstock_menu" parent="cxrs_menu_root" action="cxrs_outstock_action" />
+
+        <menuitem name="出库信息" id="cxrs_outstock_menu" parent="cxrs_stock_menu" action="cxrs_outstock_action" />
 </odoo>
