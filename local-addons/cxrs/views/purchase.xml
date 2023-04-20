@@ -85,6 +85,7 @@
                         <button string="取消" name="button_one" type="object" class="oe_highlight"/>
                         <button string="验证" name="button_two" type="object" class="oe_highlight" attrs="{'invisible': [('purchase_state', '=', 'two')]}"/>
                         <button string="确认订单" name="button_three" type="object" class="oe_highlight" attrs="{'invisible': [('purchase_state', '=', 'three')]}"/>
+                         <button string="采购退单" name="button_five" type="object" class="oe_highlight" attrs="{'invisible': [('purchase_state', '=', 'five')]}"/>
                             <field name="purchase_state" widget="statusbar" statusbar_visible="one,two,three"/>
                     </header>
                         <sheet>

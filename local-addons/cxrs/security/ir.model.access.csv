@@ -6,4 +6,5 @@ cxrs_purchase,cxrs.purchase_admin,model_cxrs_purchase,group_cxrs,1,1,1,1
 cxrs_sale,cxrs.sale_admin,model_cxrs_sale,group_cxrs,1,1,1,1
 cxrs_stock,cxrs.stock_admin,model_cxrs_stock,group_cxrs,1,1,1,1
 cxrs_refundment,cxrs.refundment_admin,model_cxrs_refundment,group_cxrs,1,1,1,1
+cxrs_return_purchase,cxrs.return_purchase_admin,model_cxrs_return_purchase,group_cxrs,1,1,1,1
 

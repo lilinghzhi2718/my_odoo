@@ -1,0 +1,52 @@
+<?xml version="1.8" encoding="utf-8"?>
+<odoo>
+
+    <record id='cxrs_return_purchase_tree_view' model="ir.ui.view">
+        <field name="name">采购退单</field>
+        <field name="model">cxrs.return_purchase</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="product_name"/>
+                    <field name="return_purchase_num"/>
+                    <field name="return_purchase_date"/>
+                </tree>
+        </field>
+    </record>
+
+<record id='cxrs_return_purchase_form_view' model="ir.ui.view">
+        <field name="name">采购退单</field>
+        <field name="model">cxrs.return_purchase</field>
+        <field name="arch" type="xml">
+                <form>
+                        <sheet>
+                            <header>
+                        <button string="取消" name="button_one" type="object" class="oe_highlight"/>
+                        <button string="验证" name="button_two" type="object" class="oe_highlight" attrs="{'invisible': [('return_purchase_state', '=', 'two')]}"/>
+                        <button string="确认订单" name="button_three" type="object" class="oe_highlight" attrs="{'invisible': [('return_purchase_state', '=', 'three')]}"/>
+                            <field name="return_purchase_state" widget="statusbar" statusbar_visible="one,two,three"/>
+                            </header>
+                            <group>
+                                     <field name="return_purchase_num"/>
+                                      <field name="return_purchase_date"/>
+                                 </group>
+
+                                <sheet>
+                                <group>
+                                     <field name="rp_pe_id"/>
+                                      <field name="rp_pr_id"/>
+                                      <field name="rp_pu_id"/>
+                                </group>
+                                </sheet>
+                        </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id='cxrs_return_purchase_action' model="ir.actions.act_window">
+        <field name="name">采购退单</field>
+        <field name="res_model">cxrs.return_purchase</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <menuitem name="采购退单" id="cxrs_return_purchase_menu" parent="cxrs_purchase_menu" action="cxrs_return_purchase_action" />
+</odoo>

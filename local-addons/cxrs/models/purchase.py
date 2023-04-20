@@ -11,6 +11,7 @@ class purchase(models.Model):
 
     pu_pr_id = fields.One2many('cxrs.product', 'pr_pu_id', string='收购物品')
     pu_pe_id = fields.Many2one('cxrs.person',string='人物名称',create=True)
+    pu_rp_id = fields.Many2one('cxrs.return_purchase', string='采购退货')
 
     purchase_ids = fields.Char(string='采购订单编号', readonly=True)
     product_name = fields.Char(string='货品名称',required=True)
@@ -64,7 +65,16 @@ class purchase(models.Model):
             'views': [(product_form_id, 'form')],
         }
 
-
+    def button_five(self):
+        return_purchase_form_id = self.env.ref('cxrs.cxrs_return_purchase_form_view').id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '采购退单',
+            'res_model': 'cxrs.return_purchase',
+            'view_mode': 'form',
+            'target': 'inline',
+            'views': [(return_purchase_form_id, 'form')],
+        }
 
 
     @api.model

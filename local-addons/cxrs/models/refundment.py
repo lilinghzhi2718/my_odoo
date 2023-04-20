@@ -3,7 +3,7 @@ from odoo.exceptions import ValidationError
 
 class refundment(models.Model):
     _name = 'cxrs.refundment'
-    _description = '销售退款'
+    _description = '销售退货'
     _rec_name = 'product_name'
 
     re_pe_id = fields.Many2one('cxrs.person',string='顾客信息')
@@ -11,18 +11,18 @@ class refundment(models.Model):
     re_sa_id = fields.Many2one('cxrs.sale', string='销售信息')
 
     product_name = fields.Char(string='货品名称')
-    refundment_num = fields.Float(string='退款数量', default=0)
+    refundment_num = fields.Float(string='销售退货数量', default=0)
 
 
-    refundment_date = fields.Datetime(string='退款时间', default=fields.Datetime.now())
-    refundment_state = fields.Selection([('one', '草稿'), ('two', '已验证'), ('three', '退货入库')], string='退款状态'
+    refundment_date = fields.Datetime(string='销售退货时间', default=fields.Datetime.now())
+    refundment_state = fields.Selection([('one', '草稿'), ('two', '已验证'), ('three', '退货入库')], string='退货状态'
                                   , readonly=True, default='one', copy=False, track_visiblity='onchange')
 
     color = fields.Integer()
 
 
     def button_one(self):
-        return self.write({"refundment":"one"})
+        return self.write({"refundment_state":"one"})
 
     def button_two(self):
          self.write({"refundment_state":"two"})
