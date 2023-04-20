@@ -10,6 +10,7 @@ class product(models.Model):
     pr_sa_id = fields.Many2one('cxrs.sale', string='销售信息')
     pr_pe_id = fields.Many2one('cxrs.person', string='供应商信息')
     pr_pu_id=fields.Many2one('cxrs.purchase',string='采购信息')
+    pr_re_id=fields.Many2one('cxrs.refundment', string='销售退货信息')
 
     product_ids = fields.Char(string='货品编号', readonly=True)
     product_name = fields.Char(string='货品名称',required=True)

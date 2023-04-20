@@ -104,6 +104,7 @@
                                      <field name="purchase_cost"/>
                                      <field name="purchase_num"/>
                                     <field name="purchase_money"/>
+                                     <field name="sale_money"/>
                                     <field name="purchase_detail"/>
                                 </group>
                                 <group>

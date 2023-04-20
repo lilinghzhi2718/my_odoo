@@ -9,6 +9,8 @@ class sale(models.Model):
     sa_pe_id = fields.Many2one('cxrs.person',string='顾客信息')
     sa_pr_id = fields.Many2one('cxrs.product', string='产品信息')
     sa_ou_id = fields.Many2one('cxrs.outstock', string='出库信息')
+    sa_re_id = fields.Many2one('cxrs.refundment',string='退款信息')
+
 
     product_name = fields.Char(string='货品名称',required=True)
     product_img = fields.Binary(string='货品图片')
@@ -36,6 +38,11 @@ class sale(models.Model):
     def button_two(self):
         return self.write({"sale_state":"two"})
     def button_three(self):
+        product_record = self.env['cxrs.product'].browse(self.sa_pr_id.id)
+        product_record.write({
+            'sale_money': self.sale_money,
+            'pr_sa_id': self.id,
+        })
         self.sale_date=fields.Datetime.now()
         self.write({"sale_state": "three"})
         outstock_form_id = self.env.ref('cxrs.cxrs_outstock_form_view').id
@@ -62,6 +69,16 @@ class sale(models.Model):
             'view_mode': 'form',
             'target': 'inline',
             'views': [(person_form_id, 'form')],
+        }
+    def button_five(self):
+        refundment_form_id = self.env.ref('cxrs.cxrs_refundment_form_view').id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '销售退货',
+            'res_model': 'cxrs.refundment',
+            'view_mode': 'form',
+            'target': 'inline',
+            'views': [(refundment_form_id, 'form')],
         }
 
     @api.model

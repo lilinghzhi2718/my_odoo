@@ -33,6 +33,7 @@
         'views/product.xml',
         'views/sale.xml',
         'views/outstock.xml',
+        'views/refundment.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

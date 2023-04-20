@@ -85,11 +85,13 @@
                         <button string="取消" name="button_one" type="object" class="oe_highlight"/>
                         <button string="验证" name="button_two" type="object" class="oe_highlight" attrs="{'invisible': [('sale_state', '=', 'two')]}"/>
                         <button string="确认订单" name="button_three" type="object" class="oe_highlight" attrs="{'invisible': [('sale_state', '=', 'three')]}"/>
+                         <button string="销售退货" name="button_five" type="object" class="oe_highlight" />
                             <field name="sale_state" widget="statusbar" statusbar_visible="one,two,three"/>
                     </header>
                         <sheet>
                             <group>
                                 <group>
+                                     <field name="sa_pr_id"/>
                                      <field name="product_name"/>
                                      <field name="product_img" widget ='image' class ="oe_avatar oe_left"/>
                                  </group>
